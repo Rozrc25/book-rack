@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+        
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- <script src="books.js" defer></script> -->
+
+        <title>bookself.roz.in</title>
+    </head>
+    <body>
+        <div class="styling">
+                <h1>Read It?</h1>
+                <form action="https://script.google.com/macros/s/AKfycbyKZkP3ggLv7h2SpWNRWn6_Ofx30biSOmo1hAsGVT5VkcD-kL7XfFFDecRywrjEKiIN/exec" id="submit-form" method="post">
+                    <label for="title">Title: </label>
+                    <input type="text" name="title" id="title" placeholder="book name" required>
+
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" placeholder="author name" required>
+
+                    <label for="pages">No of pages</label>
+                    <input type="number" min="0" name="pages" id="pages" placeholder=" page no." required>
+
+                    <fieldset>
+                        <legend>Read?</legend>
+                        <input type="radio" id="haveread" name="read" value="haveread"><label for="haveread">yes</label>
+                        <input type="radio" id="notread" name="read" value="notread"><label for="notread">no</label>
+                    </fieldset>
+
+                    <button type="submit">Submit</button>
+
+                </form>
+
+        
+            <div class="shelf">
+                <div class="shelf_top">
+                    <a href="https://peaches-xo.github.io/library/"><img id="img_git" src="images/github.svg"></a> 
+                    <img id="img_books" src="images/bookstack1.png">
+                </div>
+                <div class="shelf_bottom"></div>
+            </div>
+
+            <!-- <table>    
+                <thead>
+                    <tr>
+                        <th id="table_title">Title</th>
+                        <th id="table_author">Author</th>
+                        <th id="table_pages">Pages</th>
+                        <th id="table_read">Read?</th>
+                        <th id="table_delete">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table> -->
+               
+        </div>
+        <footer>
+          <center><h4>by: rohith</h4></center>
+        </footer>
+        <script>
+            $("#submit-form").submit((e)=>{
+                    e.preventDefault()
+                    $.ajax({
+                        url:"https://script.google.com/macros/s/AKfycbyKZkP3ggLv7h2SpWNRWn6_Ofx30biSOmo1hAsGVT5VkcD-kL7XfFFDecRywrjEKiIN/exec",
+                        data:$("#submit-form").serialize(),
+                        method:"post",
+                        success:function (response){
+                            alert("we will call you in a minute")
+                            window.location.reload()
+                            window.location.href="index.html"
+                        },
+                        error:function (err){
+                            alert("Something Error")
+            
+                        }
+                    })
+                })
+           </script>
+    </body>
+</html>
